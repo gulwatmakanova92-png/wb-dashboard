@@ -1,35 +1,43 @@
 <!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Дашборд WB · по SKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#0f1225;color:#eef1ff;padding:16px;max-width:620px;margin:0 auto}
-h1{font-size:19px}.period{color:#8b93c7;font-size:13px;margin:2px 0 16px}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:14px}
-.card{background:#1a1f3d;border-radius:14px;padding:13px}
-.k-label{font-size:11px;color:#8b93c7;margin-bottom:6px}.k-val{font-size:17px;font-weight:700}.k-sub{font-size:10px;color:#8b93c7;margin-top:4px}
-.block{background:#1a1f3d;border-radius:14px;padding:16px;margin-bottom:14px}.block h2{font-size:14px;margin-bottom:12px;color:#c7ccf0}
-.exp{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid #262c52;color:#c7ccf0}.exp b{color:#ff8a9b}
-table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:7px 4px;border-bottom:1px solid #262c52;text-align:left}
-th{font-size:10px;color:#8b93c7}
-.idx{color:#6b73a8;width:16px}.nm{color:#dfe3ff}.art{color:#6b73a8;font-size:9px}
-.c{text-align:center;color:#dfe3ff}.vl{text-align:right;font-weight:600;white-space:nowrap;color:#dfe3ff}.pct{text-align:right;font-weight:700}.na{color:#6b73a8;font-size:10px}
-.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:9px}.bar-name{width:110px;font-size:11px;color:#c7ccf0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bar-track{flex:1;background:#262c52;border-radius:6px;height:15px;overflow:hidden}.bar-fill{height:100%;background:linear-gradient(90deg,#4fd6a0,#7cf0c0);border-radius:6px}
-.bar-val{width:74px;text-align:right;font-size:11px;font-weight:700;color:#7cf0c0}
-footer{text-align:center;color:#6b73a8;font-size:11px;margin-top:8px}
-#gate{position:fixed;inset:0;background:#0f1225;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;text-align:center}
-#gate input{padding:12px 16px;border-radius:10px;border:1px solid #2a3160;background:#1a1f3d;color:#fff;font-size:16px;text-align:center;width:180px}
-#gate button{padding:12px 22px;border:none;border-radius:10px;background:#4fd6a0;color:#08210f;font-weight:700;font-size:15px;cursor:pointer}
+body{font-family:'Nunito',-apple-system,'Segoe UI',sans-serif;background:linear-gradient(160deg,#fde7f3 0%,#eee7ff 55%,#e5f6ff 100%);background-attachment:fixed;color:#4a3a5a;padding:16px;max-width:620px;margin:0 auto}
+h1{font-size:20px;font-weight:800;color:#5b3d6e}.period{color:#a394b5;font-size:13px;margin:2px 0 16px;font-weight:600}
+.hero{background:linear-gradient(135deg,#ff9ec7 0%,#b18cff 100%);border-radius:24px;padding:22px;text-align:center;color:#fff;margin-bottom:16px;box-shadow:0 10px 30px rgba(177,140,255,.35)}
+.hero-label{font-size:13px;font-weight:700;opacity:.92;letter-spacing:.5px}
+.hero-roi{font-size:60px;font-weight:800;line-height:1.05;margin:2px 0}
+.hero-sub{font-size:13px;opacity:.95;font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.card{background:#fff;border-radius:18px;padding:14px;box-shadow:0 6px 20px rgba(180,130,200,.13)}
+.k-label{font-size:11px;color:#a394b5;margin-bottom:6px;font-weight:700}.k-val{font-size:17px;font-weight:800}.k-sub{font-size:10px;color:#b3a5c0;margin-top:4px;font-weight:600}
+.block{background:#fff;border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 6px 20px rgba(180,130,200,.13)}.block h2{font-size:15px;margin-bottom:14px;color:#5b3d6e;font-weight:800}
+.exp{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid #f1e7f7;color:#6a5a78;font-weight:600}.exp b{color:#fb6f92}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:8px 4px;border-bottom:1px solid #f1e7f7;text-align:left}
+th{font-size:10px;color:#a394b5;font-weight:700}
+.idx{color:#c3b3d0;width:16px}.nm{color:#4a3a5a;font-weight:700}.art{color:#c3b3d0;font-size:9px;font-weight:600}
+.c{text-align:center;color:#6a5a78;font-weight:700}.vl{text-align:right;font-weight:700;white-space:nowrap;color:#4a3a5a}.pct{text-align:right;font-weight:800}.pct.roi{font-size:14px}.na{color:#c3b3d0;font-size:10px}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}.bar-name{width:110px;font-size:11px;color:#6a5a78;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.bar-track{flex:1;background:#f3ebfa;border-radius:8px;height:16px;overflow:hidden}.bar-fill{height:100%;background:linear-gradient(90deg,#5eead4,#34d399);border-radius:8px}
+.bar-val{width:76px;text-align:right;font-size:11px;font-weight:800;color:#10b981}
+footer{text-align:center;color:#b3a5c0;font-size:11px;margin-top:8px;font-weight:600}
+#gate{position:fixed;inset:0;background:linear-gradient(160deg,#fde7f3,#eee7ff);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;text-align:center;font-family:'Nunito',sans-serif}
+#gate .g-card{background:#fff;border-radius:24px;padding:28px 24px;box-shadow:0 12px 40px rgba(177,140,255,.28);display:flex;flex-direction:column;align-items:center;gap:12px}
+#gate input{padding:13px 16px;border-radius:12px;border:2px solid #f0d9ec;background:#fff;color:#5b3d6e;font-size:17px;text-align:center;width:190px;font-family:inherit;font-weight:700}
+#gate input:focus{outline:none;border-color:#ff9ec7}
+#gate button{padding:13px 26px;border:none;border-radius:12px;background:linear-gradient(135deg,#ff9ec7,#b18cff);color:#fff;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;width:190px}
 #app{display:none}
 </style></head><body>
-<div id="gate">
-  <div style="font-size:34px">📊🔒</div>
-  <div style="color:#c7ccf0">Дашборд продаж</div>
-  <div style="color:#8b93c7;font-size:13px">Введите код доступа</div>
+<div id="gate"><div class="g-card">
+  <div style="font-size:40px">🛍️🔒</div>
+  <div style="color:#5b3d6e;font-weight:800;font-size:18px">Дашборд продаж</div>
+  <div style="color:#a394b5;font-size:13px;font-weight:600">Введите код доступа</div>
   <input id="code" type="password" inputmode="numeric" placeholder="код" autofocus>
   <button onclick="chk()">Открыть</button>
-  <div id="err" style="color:#ff8a9b;font-size:12px;height:14px"></div>
-</div>
+  <div id="err" style="color:#fb6f92;font-size:12px;height:14px;font-weight:700"></div>
+</div></div>
 <script>
   var CODE="8831";
   function chk(){var v=document.getElementById('code').value.trim();
@@ -38,23 +46,30 @@ footer{text-align:center;color:#6b73a8;font-size:11px;margin-top:8px}
   document.getElementById('code').addEventListener('keydown',function(e){if(e.key==='Enter')chk();});
 </script>
 <div id="app">
-<h1>📊 Дашборд продаж · Wildberries</h1>
+<h1>🛍️ Дашборд продаж · Wildberries</h1>
 <div class="period">По SKU · период 2026-06-21 — 2026-06-28</div>
-<div class="grid">
-  <div class="card"><div class="k-label">Выручка</div><div class="k-val" style="color:#eef1ff">451 227 ₽</div><div class="k-sub">продажи покупателям</div></div>
-  <div class="card"><div class="k-label">Чистыми на счёт</div><div class="k-val" style="color:#82b1ff">279 444 ₽</div><div class="k-sub">после всех расходов WB</div></div>
-  <div class="card"><div class="k-label">Прибыль (маржа)</div><div class="k-val" style="color:#7cf0c0">32 444 ₽</div><div class="k-sub">7% от выручки</div></div>
-  <div class="card"><div class="k-label">ROI</div><div class="k-val" style="color:#ff8a9b">13%</div><div class="k-sub">прибыль / вложения</div></div>
-  <div class="card"><div class="k-label">% выкупа</div><div class="k-val" style="color:#7cf0c0">82%</div><div class="k-sub">89 дост / 19 возвр</div></div>
-  <div class="card"><div class="k-label">Продано</div><div class="k-val" style="color:#eef1ff">69 шт</div><div class="k-sub">себест. 247 000 ₽</div></div>
+
+<div class="hero">
+  <div class="hero-label">ROI ЗА НЕДЕЛЮ · окупаемость вложений</div>
+  <div class="hero-roi">13%</div>
+  <div class="hero-sub">на каждый 1 ₽ вложений — 0,13 ₽ прибыли</div>
 </div>
-<div class="block"><h2>💸 Расходы WB (вычитаются из перечисления)</h2>
+
+<div class="grid">
+  <div class="card"><div class="k-label">Выручка</div><div class="k-val" style="color:#6aa8ff">451 227 ₽</div><div class="k-sub">продажи покупателям</div></div>
+  <div class="card"><div class="k-label">Чистыми на счёт</div><div class="k-val" style="color:#a78bfa">279 444 ₽</div><div class="k-sub">после расходов WB</div></div>
+  <div class="card"><div class="k-label">Прибыль</div><div class="k-val" style="color:#10b981">32 444 ₽</div><div class="k-sub">7% от выручки</div></div>
+  <div class="card"><div class="k-label">% выкупа</div><div class="k-val" style="color:#10b981">82%</div><div class="k-sub">89 дост / 19 возвр</div></div>
+  <div class="card"><div class="k-label">Продано</div><div class="k-val" style="color:#ff7eb6">69 шт</div><div class="k-sub">возвраты 19</div></div>
+  <div class="card"><div class="k-label">Себестоимость</div><div class="k-val" style="color:#f59e0b">247 000 ₽</div><div class="k-sub">закупка проданного</div></div>
+</div>
+<div class="block"><h2>💸 Куда ушли деньги (расходы WB)</h2>
   <div class="exp"><span>К перечислению (до расходов)</span><span>403 284 ₽</span></div>
   <div class="exp"><span>Логистика</span><b>− 78 526 ₽</b></div>
   <div class="exp"><span>Хранение</span><b>− 23 776 ₽</b></div>
   <div class="exp"><span>Удержания</span><b>− 20 881 ₽</b></div>
   <div class="exp"><span>Штрафы</span><b>− 656 ₽</b></div>
-  <div class="exp" style="border-bottom:none;font-weight:700"><span>= Чистыми на счёт</span><span style="color:#82b1ff">279 444 ₽</span></div>
+  <div class="exp" style="border-bottom:none;font-weight:800;font-size:14px"><span>= Чистыми на счёт</span><span style="color:#a78bfa">279 444 ₽</span></div>
 </div>
 <div class="block"><h2>💰 Прибыль по товарам</h2>
       <div class="bar-row"><div class="bar-name">Набор для создания д</div>
@@ -76,90 +91,90 @@ footer{text-align:center;color:#6b73a8;font-size:11px;margin-top:8px}
       <div class="bar-track"><div class="bar-fill" style="width:2.257836361180623%;"></div></div>
       <div class="bar-val" style="">777 ₽</div></div>
       <div class="bar-row"><div class="bar-name">насос для шариков во</div>
-      <div class="bar-track"><div class="bar-fill" style="width:2%;background:#ff8a9b"></div></div>
-      <div class="bar-val" style="color:#ff8a9b">-870 ₽</div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:2%;background:#fb6f92"></div></div>
+      <div class="bar-val" style="color:#fb6f92">-870 ₽</div></div>
       <div class="bar-row"><div class="bar-name">Массажер руки</div>
-      <div class="bar-track"><div class="bar-fill" style="width:2%;background:#ff8a9b"></div></div>
-      <div class="bar-val" style="color:#ff8a9b">-1 207 ₽</div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:2%;background:#fb6f92"></div></div>
+      <div class="bar-val" style="color:#fb6f92">-1 207 ₽</div></div>
       <div class="bar-row"><div class="bar-name">Мыльные пузыри писто</div>
-      <div class="bar-track"><div class="bar-fill" style="width:2%;background:#ff8a9b"></div></div>
-      <div class="bar-val" style="color:#ff8a9b">-2 405 ₽</div></div></div>
+      <div class="bar-track"><div class="bar-fill" style="width:2%;background:#fb6f92"></div></div>
+      <div class="bar-val" style="color:#fb6f92">-2 405 ₽</div></div></div>
 <div class="block"><h2>📦 По каждому SKU</h2>
   <table><tr><th></th><th>Товар</th><th>Шт</th><th>Выкуп</th><th>Чистыми</th><th>Прибыль</th><th>Марж</th><th>ROI</th></tr>
       <tr><td class="idx">1</td>
       <td class="nm">Набор для создания дизайна воздушного флаффи клауд слайма<div class="art">8831слайм</div></td>
       <td class="c">21</td>
-      <td class="c" style="color:#7cf0c0">86%</td>
+      <td class="c" style="color:#10b981">86%</td>
       <td class="vl">68 028 ₽</td>
       <td class="vl" style="">34 428 ₽</td>
-      <td class="pct" style="color:#7cf0c0">32%</td>
-      <td class="pct" style="color:#7cf0c0">102%</td></tr>
+      <td class="pct" style="color:#10b981">32%</td>
+      <td class="pct roi" style="color:#10b981">102%</td></tr>
       <tr><td class="idx">2</td>
       <td class="nm">Мини принтер с ИИ<div class="art">8831ии</div></td>
       <td class="c">13</td>
-      <td class="c" style="color:#ffd479">78%</td>
+      <td class="c" style="color:#f59e0b">78%</td>
       <td class="vl">92 424 ₽</td>
       <td class="vl" style="">19 624 ₽</td>
-      <td class="pct" style="color:#ffd479">18%</td>
-      <td class="pct" style="color:#ffd479">27%</td></tr>
+      <td class="pct" style="color:#f59e0b">18%</td>
+      <td class="pct roi" style="color:#f59e0b">27%</td></tr>
       <tr><td class="idx">3</td>
       <td class="nm">Робот мойщик окон<div class="art">8831robot</div></td>
       <td class="c">0</td>
-      <td class="c" style="color:#ff8a9b">0%</td>
+      <td class="c" style="color:#fb6f92">0%</td>
       <td class="vl">15 903 ₽</td>
       <td class="vl" style="">15 903 ₽</td>
-      <td class="pct" style="color:#8b93c7">—</td>
-      <td class="pct" style="color:#8b93c7">—</td></tr>
+      <td class="pct" style="color:#9b8aa8">—</td>
+      <td class="pct roi" style="color:#9b8aa8">—</td></tr>
       <tr><td class="idx">4</td>
       <td class="nm">Подарочный набор бомбочек для ванны детский с игрушкой<div class="art">8831pinkbomb</div></td>
       <td class="c">2</td>
-      <td class="c" style="color:#7cf0c0">100%</td>
+      <td class="c" style="color:#10b981">100%</td>
       <td class="vl">12 224 ₽</td>
       <td class="vl" style="">6 424 ₽</td>
-      <td class="pct" style="color:#7cf0c0">47%</td>
-      <td class="pct" style="color:#7cf0c0">111%</td></tr>
+      <td class="pct" style="color:#10b981">47%</td>
+      <td class="pct roi" style="color:#10b981">111%</td></tr>
       <tr><td class="idx">5</td>
       <td class="nm">Подарочный набор бомбочек для ванны детский с игрушкой<div class="art">8831dino</div></td>
       <td class="c">2</td>
-      <td class="c" style="color:#ffd479">75%</td>
+      <td class="c" style="color:#f59e0b">75%</td>
       <td class="vl">12 028 ₽</td>
       <td class="vl" style="">4 428 ₽</td>
-      <td class="pct" style="color:#ffd479">26%</td>
-      <td class="pct" style="color:#7cf0c0">58%</td></tr>
+      <td class="pct" style="color:#f59e0b">26%</td>
+      <td class="pct roi" style="color:#10b981">58%</td></tr>
       <tr><td class="idx">6</td>
       <td class="nm">пузырь пистолет<div class="art">8831buble</div></td>
       <td class="c">2</td>
-      <td class="c" style="color:#ffd479">75%</td>
+      <td class="c" style="color:#f59e0b">75%</td>
       <td class="vl">5 577 ₽</td>
       <td class="vl" style="">777 ₽</td>
-      <td class="pct" style="color:#ff8a9b">7%</td>
-      <td class="pct" style="color:#ff8a9b">16%</td></tr>
+      <td class="pct" style="color:#fb6f92">7%</td>
+      <td class="pct roi" style="color:#fb6f92">16%</td></tr>
       <tr><td class="idx">7</td>
       <td class="nm">насос для шариков воздушных ручной<div class="art">sharnasos</div></td>
       <td class="c">4</td>
-      <td class="c" style="color:#7cf0c0">100%</td>
+      <td class="c" style="color:#10b981">100%</td>
       <td class="vl">1 530 ₽</td>
-      <td class="vl" style="color:#ff8a9b">-870 ₽</td>
-      <td class="pct" style="color:#ff8a9b">-31%</td>
-      <td class="pct" style="color:#ff8a9b">-36%</td></tr>
+      <td class="vl" style="color:#fb6f92">-870 ₽</td>
+      <td class="pct" style="color:#fb6f92">-31%</td>
+      <td class="pct roi" style="color:#fb6f92">-36%</td></tr>
       <tr><td class="idx">8</td>
       <td class="nm">Массажер руки<div class="art">8888siasoo</div></td>
       <td class="c">24</td>
-      <td class="c" style="color:#7cf0c0">86%</td>
+      <td class="c" style="color:#10b981">86%</td>
       <td class="vl">116 393 ₽</td>
-      <td class="vl" style="color:#ff8a9b">-1 207 ₽</td>
-      <td class="pct" style="color:#ff8a9b">-1%</td>
-      <td class="pct" style="color:#ff8a9b">-1%</td></tr>
+      <td class="vl" style="color:#fb6f92">-1 207 ₽</td>
+      <td class="pct" style="color:#fb6f92">-1%</td>
+      <td class="pct roi" style="color:#fb6f92">-1%</td></tr>
       <tr><td class="idx">9</td>
       <td class="nm">Мыльные пузыри пистолет игрушка<div class="art">8831green</div></td>
       <td class="c">1</td>
-      <td class="c" style="color:#ffd479">60%</td>
+      <td class="c" style="color:#f59e0b">60%</td>
       <td class="vl">-5 ₽</td>
-      <td class="vl" style="color:#ff8a9b">-2 405 ₽</td>
-      <td class="pct" style="color:#ff8a9b">-55%</td>
-      <td class="pct" style="color:#ff8a9b">-100%</td></tr></table>
-  <div style="color:#6b73a8;font-size:10px;margin-top:10px">Чистыми = перечисление − логистика − хранение − удержания − штрафы. Прибыль = чистыми − себестоимость. Марж = прибыль/выручка. ROI = прибыль/себестоимость.</div>
+      <td class="vl" style="color:#fb6f92">-2 405 ₽</td>
+      <td class="pct" style="color:#fb6f92">-55%</td>
+      <td class="pct roi" style="color:#fb6f92">-100%</td></tr></table>
+  <div style="color:#c3b3d0;font-size:10px;margin-top:10px;font-weight:600">Чистыми = перечисление − логистика − хранение − удержания − штрафы. Прибыль = чистыми − себестоимость. Марж = прибыль/выручка. ROI = прибыль/себестоимость.</div>
 </div>
-<footer>Собрано агентом Гайра · данные из отчёта WB</footer>
+<footer>Собрано агентом Гайра 💜 · данные из отчёта WB</footer>
 </div>
 </body></html>
